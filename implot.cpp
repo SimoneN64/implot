@@ -206,6 +206,13 @@ ImPlotStyle::ImPlotStyle() {
 //-----------------------------------------------------------------------------
 // Style
 //-----------------------------------------------------------------------------
+time_t timegm(struct tm *tm) {
+    time_t ret = mktime(tm);
+    if (tm->tm_isdst)
+        ret -= 3600;
+
+    return ret;
+}
 
 namespace ImPlot {
 
